@@ -10,6 +10,7 @@ const Comments = $('<div>', {
         borderRadius: '15px',
         backgroundColor: 'pink',
         overflowY: 'scroll',
+        overflowWrap: 'anywhere',
         boxShadow: '5px 5px 5px black'
     }
 })

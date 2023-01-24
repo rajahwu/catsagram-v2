@@ -22,7 +22,6 @@ const CommentsForm = $('<div>', {
     .data("initialY", 0)
     .data("moveElement", false)
 
-
 CommentsForm.hide()
 
 const commentForm: JQuery<HTMLFormElement> = $('<form>', {
@@ -50,10 +49,6 @@ const deleteComentBtn = $('<button>❌</button>', {
         cursor: 'pointer'
     },
 })
-
-// deleteComentBtn.on('click', function() {
-//     $(this).parent().remove()
-// })
 
 const formBtnContainer = $('<div>', {
     width: '25px',
@@ -105,7 +100,19 @@ const submitBtn = $('<button>', {
         if (newComment.val()?.toString().length) {
             Comment.clone()
                 .text(newComment.val()?.toString() || '')
-                .append(deleteComentBtn.clone().on('click', function() {
+                .append(deleteComentBtn.clone()
+                .css({
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    alignSelf: 'center',
+                    fontSize: '5px',
+                    width: '15px',
+                    height: '15px',
+                    marginLeft: '50px',
+                    borderRadius: '50%'
+                })
+                .on('click', function() {
                     $(this).parent().remove()
                 }))
                 .prependTo('#comments')

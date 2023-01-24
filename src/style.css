@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree&display=swap');
+
 body {
   background: linear-gradient(45deg, hsl(0, 0%, 0%), hsl(0, 0%, 50%), hsl(0, 0%, 0%));
 }
@@ -7,8 +9,12 @@ body {
 }
 
 .hover {
-  background: green;
   scale:  1.5;
+}
+
+.pic-hover {
+  scale: 1.3;
+  margin-top: 7vh; 
 }
 
 .up {

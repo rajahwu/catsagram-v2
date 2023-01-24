@@ -17,7 +17,8 @@ $('<img>', {
     css: {
         borderRadius: '15px',
         boxShadow: '5px 5px 5px black',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        transition: 'scale 2s ease-in-out'
     },
     click: function () {
         $.get('https://api.thecatapi.com/v1/images/search', (response) => {
@@ -26,6 +27,14 @@ $('<img>', {
             });
         })
     }
-}).appendTo(Pic);
+})
+.on('mouseenter', function () {
+    $(this).addClass('pic-hover')
+})
+.on('mouseleave', function () {
+    $(this).removeClass('pic-hover')
+})
+
+.appendTo(Pic);
 
 export default Pic;

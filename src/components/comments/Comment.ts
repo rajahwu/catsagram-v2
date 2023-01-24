@@ -2,21 +2,21 @@ import $ from "jquery";
 
 const Comment = $('<li>', {
     css: {
-        backgroundColor: 'lightblue',
+        display: 'flex',
+        justifyContent: 'center',
+        aliginItems: 'center',
+        background: 'hsla(0, 0%, 0%, 0.85)',
+        color: 'white',
         width: '200x',
-        height: '50px',
+        minHeight: '50px',
+        height: 'fit-content',
         border: '2.5 solid black',
-        margin: '5px 0px'
+        margin: '5px 0px',
+        fontFamily: '"Figtree", sans-serif',
+        fontSize: '1.5em',
+
     }
 })
-.append($('<div>❌</div>', {
-    css: {
-        backgroundColor: 'green'
-    },
-    click: function() {
-        console.log('clicked')
-    }
-}))
 
 export default Comment;
 
