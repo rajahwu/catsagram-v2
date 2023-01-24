@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-const AppContainer:JQuery<HTMLDivElement> = $('<div>', {
+const App:JQuery<HTMLDivElement> = $('<div>', {
     id: "app_container",
     class: "container",
     css: {
@@ -15,4 +15,4 @@ const AppContainer:JQuery<HTMLDivElement> = $('<div>', {
     }
 })
 
-export default AppContainer;
+export default App;

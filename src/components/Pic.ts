@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-const PicContainer:JQuery<HTMLDivElement> = $('<div>', {
+const Pic:JQuery<HTMLDivElement> = $('<div>', {
     css: {
         width: '250px',
         height: '250px',
@@ -25,6 +25,6 @@ $('<img>', {
             });
         })
     }
-}).appendTo(PicContainer);
+}).appendTo(Pic);
 
-export default PicContainer;
+export default Pic;

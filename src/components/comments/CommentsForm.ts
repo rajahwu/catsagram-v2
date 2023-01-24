@@ -1,7 +1,7 @@
 import $ from "jquery";
-import Comment from "./comment";
+import Comment from "./Comment";
 
-const CommentFormContainer = $('<div>', {
+const CommentsForm = $('<div>', {
     width: '350px',
     height: '200px',
     id: 'comment_form_container',
@@ -18,14 +18,14 @@ const CommentFormContainer = $('<div>', {
         backgroundColor: 'hsl(0, 0%, 5%)'
     }
 })
-.data("initialX", 0)
-.data("initialY", 0)
-.data("moveElement", false)
+    .data("initialX", 0)
+    .data("initialY", 0)
+    .data("moveElement", false)
 
 
-CommentFormContainer.hide()
+CommentsForm.hide()
 
-const commentForm:JQuery<HTMLFormElement> = $('<form>', {
+const commentForm: JQuery<HTMLFormElement> = $('<form>', {
     width: 300,
     height: 150,
     css: {
@@ -68,15 +68,16 @@ const resetBtn = $('<button>', {
     },
     click: (e: Event) => {
         e.preventDefault()
-        CommentFormContainer.hide()
+        CommentsForm.hide()
         newComment.val('')
+        $('#makeCommentBtn').show()
     }
 })
-.append($('<img>', {
-    width: 25,
-    height: 25,
-    'src': '../red_x.png'
-}))
+    .append($('<img>', {
+        width: 25,
+        height: 25,
+        'src': '../red_x.png'
+    }))
 
 const submitBtn = $('<button>', {
     width: '25px',
@@ -89,23 +90,27 @@ const submitBtn = $('<button>', {
     },
     click: (e: Event) => {
         e.preventDefault()
-            if (newComment.val()?.toString().length)
-                Comment.clone()
-                    .text(newComment.val()?.toString() || '')
-                    .prependTo('#comments')
-        CommentFormContainer.hide()
+        if (newComment.val()?.toString().length) {
+            Comment.clone()
+                .text(newComment.val()?.toString() || '')
+                .append($('<span>❌</span>)'))
+                .prependTo('#comments')
+        }
+        CommentsForm.hide()
         newComment.val('')
+        $('#makeCommentBtn').show()
     }
 })
-.append($('<img>', {
-    width: 10,
-    height: 10,
-    'src': '../green_check.png'
-}))
+    .append($('<img>', {
+        width: 10,
+        height: 10,
+        'src': '../green_check.png'
+    }))
+
 commentForm.append(newComment)
 commentForm.append(formBtnContainer)
 formBtnContainer.append(resetBtn)
 formBtnContainer.append(submitBtn)
-CommentFormContainer.append(commentForm)
+CommentsForm.append(commentForm)
 
-export default CommentFormContainer;
+export default CommentsForm;

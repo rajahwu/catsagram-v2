@@ -1,6 +1,6 @@
 import './style.css'
 import $ from "jquery";
-import { AppContainer, PicContainer, CommentContainer, ButtonContainer, CommentFormContainer } from './components';
+import { App, Pic, VoteButtons, CommentsForm, Comments } from './components';
 
 
 $(() => {
@@ -9,12 +9,12 @@ $(() => {
         display: 'flex',
         justifyContent: 'center'
     });
-    AppContainer.appendTo(app);
-    PicContainer.appendTo(AppContainer);
-    CommentContainer.appendTo(AppContainer);
-    ButtonContainer.appendTo(AppContainer);
+    App.appendTo(app);
+    Pic.appendTo(App);
+    Comments.appendTo(App);
+    VoteButtons.appendTo(App);
 
-    $('body').append(CommentFormContainer);
+    $('body').append(CommentsForm);
 })
 
 $(() => {

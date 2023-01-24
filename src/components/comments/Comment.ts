@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-const Comment:JQuery<HTMLLIElement> = $('<li>', {
+const Comment = $('<li>', {
     css: {
         backgroundColor: 'lightblue',
         width: '200x',
