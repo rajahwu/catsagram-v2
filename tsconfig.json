@@ -16,7 +16,16 @@
     "skipLibCheck": true
   },
   "typedocOptions": {
-    "entryPoints": ["src/main.ts", "src/components/index.ts"],
+    "entryPoints": [
+      "src/main.ts", 
+      "src/components/index.ts", 
+      // "src/components/comments/Comment.ts",
+      // "src/components/comments/Comments.ts",
+      // "src/components/comments/CommentsForm.ts",
+      // "src/components/App.ts",
+      // "src/components/Pic.ts",
+      // "src/components/VoteButtons.ts"
+    ],
     "out": "./public/docs"
 },
   "include": ["src"]

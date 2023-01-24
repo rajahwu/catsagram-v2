@@ -4,7 +4,7 @@
 
 [View Docs](https://quiet-queijadas-6066de.netlify.app/docs/index.html)
 
-![Catsagram](./readme/catsagram_clip.png)
+![Catsagram](./public/readme/catsagram_clip.png)
 
-![cuttest kitten](./readme/catsagram2.jpg)
-![fluffy white cat](./readme/catsagram1.jpg)
+![cuttest kitten](./public/readme/catsagram2.jpg)
+![fluffy white cat](./public/readme/catsagram1.jpg)
