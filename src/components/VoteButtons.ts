@@ -1,5 +1,7 @@
 import $ from "jquery";
-
+/**
+ * Container for upvote and downvote buttons
+ */
 const VoteButtons: JQuery<HTMLDivElement> = $('<div>', {
     id: 'button_container',
     css: {
@@ -10,6 +12,9 @@ const VoteButtons: JQuery<HTMLDivElement> = $('<div>', {
     }
 })
 
+/**
+ * Local jQuery Button component
+ */
 const button = $('<div>', {
     css: {
         width: '100px',
@@ -25,10 +30,16 @@ const button = $('<div>', {
         cursor: 'pointer'
     },
 })
-
-
+/**
+ * Downvote Button cloned from local jQuery button component
+ */
 const downvoteBtn = button.clone()
     .addClass('downvoteBtn')
+    /**
+     * Add data attribute to button
+     * Use to check if button if up
+     *      for click animations 
+     */
     .data("isUp", false)
     .css({
         left: '60px',
@@ -39,21 +50,28 @@ const downvoteBtn = button.clone()
         height: '50px',
     }))
     .appendTo(VoteButtons)
+    /**
+     * Click event handler to toggle button animations
+     */
     .on('click', function () {
         let btnUp: boolean = downvoteBtn.data("isUp")
 
         if (!btnUp) {
-        if(upvoteBtn.data("isUp")) upvoteBtn.trigger('click')
+            // triggers click on upvote if upvote button isUp
+            if (upvoteBtn.data("isUp")) upvoteBtn.trigger('click')
             $(this).stop()
-            .animate({
-                bottom: '45vh',
-                width: 0,
-                height: 0,
-                marginLeft: '100px',
-            }, 5000).fadeOut("slow").fadeIn("slow")
+                .animate({
+                    bottom: '45vh',
+                    width: 0,
+                    height: 0,
+                    marginLeft: '100px',
+                }, 5000).fadeOut("slow").fadeIn("slow")
 
             downvoteBtn.data("isUp", true);
             btnUp = downvoteBtn.data("isUp")
+            /**
+           * setTImeout to remove class for button rotation
+           */
             setTimeout(function () {
                 $(downvoteBtn).addClass("downVote")
             }, 2000)
@@ -61,14 +79,17 @@ const downvoteBtn = button.clone()
         }
         else if (btnUp) {
             $(this).stop()
-            .animate({
-                bottom: '0vh',
-                width: 100,
-                height: 100,
-                marginLeft: 0,
-            }, 5000)
+                .animate({
+                    bottom: '0vh',
+                    width: 100,
+                    height: 100,
+                    marginLeft: 0,
+                }, 5000)
             downvoteBtn.data("isUp", false);
             btnUp = downvoteBtn.data("isUp")
+            /**
+             * setTImeout to remove class for button rotation
+             */
             setTimeout(function () {
                 $(downvoteBtn).removeClass("downVote")
             }, 2500)
@@ -76,15 +97,22 @@ const downvoteBtn = button.clone()
         }
     })
 
-.on('mouseenter', function () {
-    $(this).addClass('hover')
-})
-.on('mouseleave', function () {
-    $(this).removeClass('hover')
-})
-
+    .on('mouseenter', function () {
+        $(this).addClass('hover')
+    })
+    .on('mouseleave', function () {
+        $(this).removeClass('hover')
+    })
+/**
+ * Upvote Button cloned from local jQuery button component
+ */
 const upvoteBtn = button.clone()
     .addClass('upvoteBtn')
+    /**
+    * Add data attribute to button
+    * Use to check if button if up
+    *      for click animations 
+    * */
     .data("isUp", false)
     .css({
         left: '230px',
@@ -95,19 +123,23 @@ const upvoteBtn = button.clone()
         height: '50px'
     }))
     .appendTo(VoteButtons)
+    /**
+    * Click event handler to toggle button animations
+    */
     .on("click", function () {
         let btnUp: boolean = upvoteBtn.data("isUp")
 
         if (!btnUp) {
-        if(downvoteBtn.data("isUp")) downvoteBtn.trigger('click')
+            // triggers click on downvote if downvote button isUp
+            if (downvoteBtn.data("isUp")) downvoteBtn.trigger('click')
             $(this).stop()
-            .animate({
-                bottom: '45vh',
-                width: 1,
-                height: 0
-            }, 5000)
-            .fadeOut("slow").fadeIn("slow")
-            
+                .animate({
+                    bottom: '45vh',
+                    width: 1,
+                    height: 0
+                }, 5000)
+                .fadeOut("slow").fadeIn("slow")
+
             upvoteBtn.data("isUp", true);
             btnUp = upvoteBtn.data("isUp");
             $(this).addClass("up");
@@ -115,23 +147,23 @@ const upvoteBtn = button.clone()
         }
         else if (btnUp) {
             $(this).stop()
-            .animate({
-                bottom: '0vh',
-                width: 100,
-                height: 100
-            }, 5000)
+                .animate({
+                    bottom: '0vh',
+                    width: 100,
+                    height: 100
+                }, 5000)
             upvoteBtn.data("isUp", false);
             btnUp = upvoteBtn.data("isUp");
             $(this).removeClass("up")
         }
     })
 
-.on('mouseenter', function () {
-    $(this).addClass('hover')
+    .on('mouseenter', function () {
+        $(this).addClass('hover')
 
-})
-.on('mouseleave', function () {
-    $(this).removeClass('hover')
-})
+    })
+    .on('mouseleave', function () {
+        $(this).removeClass('hover')
+    })
 
 export default VoteButtons;

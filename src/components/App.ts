@@ -1,4 +1,7 @@
 import $ from "jquery";
+/**
+ * Main App Container
+ */
 
 const App:JQuery<HTMLDivElement> = $('<div>', {
     id: "app_container",

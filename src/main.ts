@@ -2,7 +2,6 @@ import './style.css'
 import $ from "jquery";
 import { App, Pic, VoteButtons, CommentsForm, Comments } from './components';
 
-
 $(() => {
     const app = $('#app')
     .css({

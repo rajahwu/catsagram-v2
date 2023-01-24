@@ -1,5 +1,8 @@
 import $ from "jquery";
 
+/**
+ * Container for Main Pic Element
+ */
 const Pic:JQuery<HTMLDivElement> = $('<div>', {
     css: {
         width: '250px',
@@ -20,6 +23,9 @@ $('<img>', {
         cursor: 'pointer',
         transition: 'scale 2s ease-in-out'
     },
+    /**
+     * Click handler on image makes an request to [thecatapi](https://thecatapi.com)
+     */ 
     click: function () {
         $.get('https://api.thecatapi.com/v1/images/search', (response) => {
             $('#catImage').attr({
@@ -28,6 +34,15 @@ $('<img>', {
         })
     }
 })
+/**
+ * Mouseenter event listener add pic-hover class for animation
+ *  ```css
+ * .pic-hover {
+ * scale: 1.3;
+ * margin-top: 7vh; 
+ * }
+ * ```
+ */
 .on('mouseenter', function () {
     $(this).addClass('pic-hover')
 })
