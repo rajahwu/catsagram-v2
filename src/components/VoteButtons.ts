@@ -22,6 +22,7 @@ const button = $('<div>', {
         border: '3px solid black',
         borderRadius: '50%',
         boxShadow: '5px 5px 5px black',
+        cursor: 'pointer'
     },
 })
 

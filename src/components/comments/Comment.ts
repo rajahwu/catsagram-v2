@@ -9,6 +9,14 @@ const Comment = $('<li>', {
         margin: '5px 0px'
     }
 })
+.append($('<div>❌</div>', {
+    css: {
+        backgroundColor: 'green'
+    },
+    click: function() {
+        console.log('clicked')
+    }
+}))
 
 export default Comment;
 

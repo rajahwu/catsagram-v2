@@ -29,7 +29,8 @@ const commentBtn = ($('<div>', {
     css: {
         positon: 'absolute',
         backgroundColor: 'transparent',
-        transform: ('translate(150%, 875%')
+        transform: ('translate(150%, 875%'),
+        cursor: 'pointer'
     },
     click: function (e: Event) {
         e.stopImmediatePropagation()

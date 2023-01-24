@@ -16,7 +16,8 @@ $('<img>', {
     height: '250px',
     css: {
         borderRadius: '15px',
-        boxShadow: '5px 5px 5px black'
+        boxShadow: '5px 5px 5px black',
+        cursor: 'pointer'
     },
     click: function () {
         $.get('https://api.thecatapi.com/v1/images/search', (response) => {

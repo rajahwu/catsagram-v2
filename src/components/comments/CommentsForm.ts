@@ -45,6 +45,16 @@ const newComment: JQuery<HTMLTextAreaElement> = $('<input>', {
     height: '100px',
 })
 
+const deleteComentBtn = $('<button>❌</button>', {
+    css: {
+        cursor: 'pointer'
+    },
+})
+
+// deleteComentBtn.on('click', function() {
+//     $(this).parent().remove()
+// })
+
 const formBtnContainer = $('<div>', {
     width: '25px',
     height: '50px',
@@ -64,7 +74,8 @@ const resetBtn = $('<button>', {
         borderRadius: '50%',
         alignSelf: 'end',
         marginBottom: '20px',
-        marginLeft: '7px'
+        marginLeft: '7px',
+        cursor: 'pointer'
     },
     click: (e: Event) => {
         e.preventDefault()
@@ -87,13 +98,16 @@ const submitBtn = $('<button>', {
         alignSelf: 'end',
         marginBottom: '20px',
         marginLeft: '7px',
+        cursor: 'pointer'
     },
     click: (e: Event) => {
         e.preventDefault()
         if (newComment.val()?.toString().length) {
             Comment.clone()
                 .text(newComment.val()?.toString() || '')
-                .append($('<span>❌</span>)'))
+                .append(deleteComentBtn.clone().on('click', function() {
+                    $(this).parent().remove()
+                }))
                 .prependTo('#comments')
         }
         CommentsForm.hide()
