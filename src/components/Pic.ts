@@ -1,5 +1,4 @@
 import $ from "jquery";
-
 /**
  * Container for Main Pic Element
  */

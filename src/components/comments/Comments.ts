@@ -47,5 +47,4 @@ const commentBtn = ($('<div>', {
 
 $('#app').append(commentBtn)
 
-
 export default Comments;

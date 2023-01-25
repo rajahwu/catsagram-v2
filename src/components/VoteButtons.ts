@@ -11,7 +11,6 @@ const VoteButtons: JQuery<HTMLDivElement> = $('<div>', {
         alignItems: 'center',
     }
 })
-
 /**
  * Local jQuery Button component
  */
