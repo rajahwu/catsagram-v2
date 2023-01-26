@@ -67,6 +67,8 @@ const downvoteBtn = button.clone()
                 }, 5000).fadeOut("slow").fadeIn("slow")
 
             downvoteBtn.data("isUp", true);
+            localStorage.setItem('downvoteBtn', downvoteBtn.data('isUp'))
+
             btnUp = downvoteBtn.data("isUp")
             /**
            * setTImeout to remove class for button rotation
@@ -85,6 +87,7 @@ const downvoteBtn = button.clone()
                     marginLeft: 0,
                 }, 5000)
             downvoteBtn.data("isUp", false);
+            localStorage.setItem('downvoteBtn', downvoteBtn.data('isUp'))
             btnUp = downvoteBtn.data("isUp")
             /**
              * setTImeout to remove class for button rotation
@@ -141,6 +144,7 @@ const upvoteBtn = button.clone()
 
             upvoteBtn.data("isUp", true);
             btnUp = upvoteBtn.data("isUp");
+            localStorage.setItem('upvoteBtn', upvoteBtn.data('isUp'))
             $(this).addClass("up");
 
         }
@@ -153,6 +157,7 @@ const upvoteBtn = button.clone()
                 }, 5000)
             upvoteBtn.data("isUp", false);
             btnUp = upvoteBtn.data("isUp");
+            localStorage.setItem('upvoteBtn', upvoteBtn.data('isUp'))
             $(this).removeClass("up")
         }
     })
@@ -164,5 +169,6 @@ const upvoteBtn = button.clone()
     .on('mouseleave', function () {
         $(this).removeClass('hover')
     })
+
 
 export default VoteButtons;

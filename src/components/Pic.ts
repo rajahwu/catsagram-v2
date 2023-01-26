@@ -30,6 +30,7 @@ $('<img>', {
             $('#catImage').attr({
                 src: response[0].url,
             });
+            localStorage.setItem('catPic', response[0].url)
         })
     }
 })

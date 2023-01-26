@@ -5,7 +5,6 @@ const CommentsForm = $('<div>', {
     width: '350px',
     height: '200px',
     id: 'comment_form_container',
-    class: 'draggable',
     css: {
         position: 'absolute',
         display: 'flex',
@@ -18,9 +17,6 @@ const CommentsForm = $('<div>', {
         backgroundColor: 'hsl(0, 0%, 5%)'
     }
 })
-    .data("initialX", 0)
-    .data("initialY", 0)
-    .data("moveElement", false)
 
 CommentsForm.hide()
 
@@ -85,6 +81,8 @@ const resetBtn = $('<button>', {
         'src': '../red_x.png'
     }))
 
+export const commentStorageArray: string[] = []
+
 const submitBtn = $('<button>', {
     width: '25px',
     height: '25px',
@@ -98,24 +96,30 @@ const submitBtn = $('<button>', {
     click: (e: Event) => {
         e.preventDefault()
         if (newComment.val()?.toString().length) {
+            commentStorageArray.push(newComment.val()?.toString()!)
+            localStorage.setItem('comments', JSON.stringify(commentStorageArray))
             Comment.clone()
                 .text(newComment.val()?.toString() || '')
                 .append(deleteComentBtn.clone()
-                .css({
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    alignSelf: 'center',
-                    fontSize: '5px',
-                    width: '15px',
-                    height: '15px',
-                    marginLeft: '50px',
-                    borderRadius: '50%'
-                })
-                .on('click', function() {
-                    $(this).parent().remove()
-                }))
-                .prependTo('#comments')
+                    .css({
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        alignSelf: 'center',
+                        fontSize: '5px',
+                        width: '15px',
+                        height: '15px',
+                        marginLeft: '50px',
+                        borderRadius: '50%'
+                    })
+                    .on('click', function () {
+                        const comment = $(this).parent().text()
+                        const remove = comment.slice(0, comment.length - 1)
+                        commentStorageArray.splice(commentStorageArray.indexOf(remove), 1)
+                        localStorage.setItem('comments', JSON.stringify(commentStorageArray))
+                        $(this).parent().remove()
+                    }))
+                .prependTo($('#comments'))
         }
         CommentsForm.hide()
         newComment.val('')
@@ -128,10 +132,12 @@ const submitBtn = $('<button>', {
         'src': '../green_check.png'
     }))
 
+
+
 commentForm.append(newComment)
 commentForm.append(formBtnContainer)
 formBtnContainer.append(resetBtn)
 formBtnContainer.append(submitBtn)
 CommentsForm.append(commentForm)
 
-export default CommentsForm;
+export default CommentsForm ;

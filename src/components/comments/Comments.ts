@@ -16,6 +16,7 @@ const Comments = $('<div>', {
 })
 .append($('<ul>', {
         id: 'comments',
+        class: 'comments',
         css: {
             listStyle: 'none',
             padding: '0',
