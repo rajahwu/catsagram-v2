@@ -31,19 +31,17 @@ $(() => {
     if(localStorage.getItem('upvoteBtn') == "true") {
          $('.upvoteBtn').trigger('click')
     }
-    if(localStorage.getItem('downvotebtn') == "true") {
+    if(localStorage.getItem('downvoteBtn') == "true") {
         $('.downvoteBtn').trigger('click')
     }
 
-    const deleteComentBtn = $('<button>❌</button>', {
-        css: {
-            cursor: 'pointer'
-        },
-    })
-
+    
     if (localStorage.getItem('comments')) {
-        console.log(JSON.parse(localStorage.getItem('comments')!))
-
+        const deleteComentBtn = $('<button>❌</button>', {
+            css: {
+                cursor: 'pointer'
+            },
+        })
         JSON.parse(localStorage.getItem('comments')!).forEach((ele: string) => {
             commentStorageArray.push(ele)
             console.log(ele)
